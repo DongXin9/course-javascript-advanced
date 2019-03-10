@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var num1 = 20.347;
+    // //toFixed()保留特定位置的小数
+    // //超出特定位数四舍五入,返回的是字符串
+    // num1.toFixed(3);//20.35
+    // var num1 = 20;
+    // var numobject = new Number(num1);
+    // console.log(numobject.__proto__ == Number.prototype);//
+    // numobject.toFixed();  
+
+  
+    // //(数字位的个数)，四舍五入
+    // //数字位个数小于数字的整数位时，表示成指数形式
+    // //大于或者等于数字整数位时，直接四舍五入截取
+    // var num2 = 12345.6789
+    // num2.toPrecision(1);//"1e+4"
+    // num2.toPrecision(2);//"1.2e+4"
+    // num2.toPrecision(5);//"12346"
+    // num2.toPrecision(6);//"12345.7"
+
+    // num2.toString();//转换成字符串
+
+    "abcd".CharAt(2);//c//返回索引值对应的
+    String.fromCharCode(97,98,99);//"abc"//将特定Unicode码转换为字符
+
+    //charCodeAt(index)将特定位置的字符转换为Unicode码输出
+    var str = "abcdefghi";
+    str.charCodeAt(0);
+    //slice(截取的起始位置,截取的结束位置)
+    //如果截取的结束位置是小于0的，结束位置为str.length + 截取结束参数
+    str.slice(0,3);
+    //substr(截取的起始位置，截取的长度)
+    //截取的长度可以缺少，表示从起始位置到字符串结束
+    str.substr(0,3);
+    //substring(截取起始位置，截取的结束位置)
+    //如果截取的起始位置 > 截取结束位置值，两者会互换位置
+    //超出0 - str.length 范围的，会被截断
+    str.substring(0,-1);
+    //split(分隔符号，限定生成数组的长度)
+    str.split();
+
+    var str = "      ab    c    ";
+    str.trim( ); 
+    //字符串拼接
+    var str1="abc";
+    str1.concat("def","ghi");
+
+    //返回字符串最后出现位置的索引
+    var str2="abcdfgh";
+    str2.lastIndexOf("bcd");
+</script>
+</html>

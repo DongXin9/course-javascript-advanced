@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //ECMAScript 是一个语言标准，JavaScript是完全基于ECMAScript实现的脚本语言
+    //ESS 是ECMAScript5简写
+    //当前主流版本 ES5 ES6
+    //ES5标准下，没有块级应用域
+    //会自动提升为全局变量
+    if(true){
+        var username = "zhangsan";
+    }
+    console.log(username);//zhangsan
+
+    var username;
+    if(false){
+        username = "zhangsan";
+
+    }
+    console.log(username);//undefined
+
+
+    //var username;
+    //if(false){
+    //    username = "zhangsan";
+    //}
+    //console.log(username);//undefined
+
+    for(var i = 0;i < 3; i++){
+
+    }
+    console.log(i);//3
+
+
+    //严格模式
+    //对全局起作用
+    //全局时，对所有页面js代码均应用严格模式
+    'use strict'
+    function fn1(){
+        //函数范围内起作用
+        'use strict'
+    }
+
+
+    //非严格模式下，不使用var来显示声明变量，显式声明变量，则该变量自动转化为全局变量
+    function fn2(){
+        username = "zhangsan";
+    }
+    fn2();
+    console.log(username);
+    //非严格模式下，普通函数中，this指导全局变量
+    //windows
+    function fn3(){
+        console.log(this);
+    }
+    fn3();
+    //严格模式下，在普通函数中，this指向undefined
+    function fn4(){
+        'use strict'
+        console.log(this);
+    }
+    fn4();
+
+    //判断是否为严格模式
+    function judge(){
+        var result = (this === undefined?true:false);
+        return result;
+    }
+    if(judge()){
+        console.log("严格模式");
+    }
+    else{
+        console.log("非严格模式");
+    }
+
+    //生成了临时的包装对象，是对临时对象赋值，完成之后释放掉，不会对结果有影响
+    // var str="abcdefg";
+    // var strObject=new String(str);
+    // strObject.length=1;
+    // console.log(new String(str).length);
+    var str = "abcdef";
+    str.length = 1;
+    console.log(str.length);//6
+
+    //case在比较时使用的是全等操作符比较,因此不会发生隐式类型转换
+    //switch的值和case的值进行的是全等的比较，值和类型均需要相等
+    var index=1;
+    switch(index){
+        case 1:
+        //case '1':  不成功，没有值，类型不同
+            console.log("星期一");
+            break;
+        case 2:
+            console.log("星期二");
+            break;
+        default:
+            console.log("没有该选项！");
+    }
+
+    //switch具有穿透性
+    var index=1;
+    switch(index){
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            console.log("工作日");
+            break;
+
+        case 6:
+        case 7:
+            console.log("休息日");
+            break;
+    }
+
+
+</script>
+</html>
