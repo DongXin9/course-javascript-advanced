@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //继承复习
+    //一
+    var obj2 = Object.create(obj1);
+    obj2._proto_ == obj1;
+    //二
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.showName=function(){};
+
+
+
+    //ch17
+    //1、JS对象-对象原型继承
+
+    //JavaScript的原型继承是对象-对象的继承demo7
+    var superObj = {
+        x: 1,
+        y: 2
+    };
+    var subObj_First = Object.create(superObj);
+    var subObj_Second = Object.create(superObj);
+    subObj_First.__proto__.x = 5;
+    //subObj_First.x = 5;
+    console.log(subObj_Second.x);
+
+
+    //构造函数实现的对象-对象的原型继承的原型共享问题demo8
+    function Person(name){
+        this.name=name;
+    }
+    Person.prototype.age = 22;
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    }
+
+    function Student(id){
+        this.id=id;
+    }
+    var person = new Person("Mike");
+    Student.prototype = person;
+    var s1 = new Student(2017001);
+    var s2 = new Student(2017002);
+    //s1.name
+    //s1.__proto__==Student.prototype
+    //Student.prototype==Person;
+    console.log(s1.name,s2.name);
+    //s1.age
+    // s1.__proto__==Student.prototype
+    // Student.prototype==person
+    // person.__proto__==Person.prototype
+    //s1.__proto__.__proto__==Person.prototype
+    console.log(s1.age,s2.age);
+
+    console.log(s1.name,s1.age,s1.id);
+    console.log(s2.name,s2.age,s2.id);
+
+    s1.__proto__.name = "Jack";
+    console.log(s1.name,s2.name);
+
+    s2.__proto__.__proto__.age = 99;
+    console.log(s2.age);
+
+
+    //2、通过构造函数模拟类-类的继承
+    //模拟类-类继承的形式一
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+    };
+    Person.prototype.showName=function(){
+        console.log(this.name);
+    };
+    //call()方法使用一个指定的this值和单独给出的一个或者多个参数来调用一个函数
+
+    function Student(name,age,id){
+        Person.call(this,name,age);//调用Person函数this指代使用student函数实例化对象
+        this.id=id;
+    };
+    Student.prototype.__proto__=Person.prototype;
+    var s1 = new Student("xxx",22,2017001);
+    console.log(s1);
+    s1.showName();//xxx(加上Student.prototype.__proto__=Person.prototype;后可调用)
+
+    // var s2 = new Student("www",23,2017002);
+
+    //例子
+    function Animal(name,weight){
+        this.name=name;
+        this.weight=weight;
+    };
+    Animal.prototype.run = function(){
+        console.log(this.name+"can run");
+    };
+    function Bird(name,weight,color,height){
+        Animal.call(this,name,weight);
+        this.color=color;
+        this.height=height;
+    };
+    Bird.prototype.__proto__=Animal.prototype;
+    var Bird1 = new Bird("蜂鸟",10,"红色",10);
+    Bird1.run();
+    console.log(Bird1);
+
+
+    
+    //二
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+    };
+    Person.prototype.showName=function(){
+        console.log(this.name);
+    };
+    //call()方法使用一个指定的this值和单独给出的一个或者多个参数来调用一个函数
+
+    function Student(name,age,id){
+        Person.call(this,name,age);//调用Person函数this指代使用student函数实例化对象
+        this.id=id;
+    };
+    //console.log(Student.prototype);
+    Student.prototype = Object.create(Person.prototype);
+    Student.prototype.constructor = Student;
+    //console.log(Student.prototype);
+    
+    var s1 = new Student("xxx",22,2017001);
+    console.log(s1.constructor);
+
+
+</script>
+</html>
