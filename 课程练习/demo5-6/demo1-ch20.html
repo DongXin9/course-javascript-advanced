@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //正则表达式的结构：
+    //  /正则表达式文本/标识符
+    /*
+    [xzy]从括号中的字符里选任意一个
+    i标识符：是否忽略大小写（加上i忽略大小写）
+    g标识符：是否全局检索
+    */
+    var reg1 = /[bcf]at/gi;/*字面量定义*/
+    var reg2 = new RegExp(/[bcf]at/,"gi");
+    var reg3 = new RegExp("[bcf]at","gi");
+    var str1 = "bat cat fat Fat difijfi";
+    str1.match(reg1);
+
+
+    /*
+    元字符，没有任何修饰符，普通字符
+    12345 abcdef
+    */
+    var reg1 = /ab/gi;
+    var str1 = "abcdefg";
+    str1.replace(reg1,"x");
+
+
+    /*
+    字符分类：
+    \d：匹配阿拉伯数字[0-9]
+    \D：不是一个阿拉伯数字[^0-9]
+    \w：匹配所有的字母、数字、下划线
+    \W：不是字母、数字下划线
+
+    \s：匹配的是空格，空格可以使space可是
+    \S：不是空格
+    */
+    var reg1 = /a\d/gi;
+    var str1 = "a1bcda2kkee";
+    str1.replace(reg1,"x");//"xbcdxkkee"
+
+    var reg2 = /a\D/gi;
+    var str2 = "a1aba2ac";
+    str2.replace(reg2,"x");//"a1xa2x"
+
+    var reg3 = /a\w/gi;
+    var str3 = "a1asssba2aca_";
+    str3.replace(reg3,"x");//"xxssbxxx"
+    var reg4 = /\sa\d/gi;
+    var str4 = " a1 a3a4a5";
+    str4.replace(reg4,"x");//"xxa4a5"
+
+
+
+    /*
+    字符的集合
+    */
+    var reg1 = /[abc]\d/gi;
+    var str1 = "a1b2c3d4fdfd";
+    str1.replace(reg1,"x");//"xxxd4fdfd"
+
+    var reg2 = /[abc][0-9]/gi;
+    var str2 = "a1b2c3d4e5";
+    str2.replace(reg2,"x");//"xxxd4e5"
+
+    var reg3 = /[^0-9]/gi;
+    var str3 = "1a2b3c";
+    str3.replace(reg3,"x");//"xaxbxc"
+
+
+    /*
+    匹配开头字符是数字 第二个字符是a-f
+    第三个字符是空格
+    */
+    var reg4 = /\d[a-f]\s/gi;
+    var str4 = "1a  a33f ";
+    str4.replace(reg4,"x");//"x a3x"
+
+
+
+    /*
+    ^m：以m开头的字符串匹配
+    n$：以n结尾的字符串匹配
+    */
+    var reg1 = /^a\d/gi;
+    var str1 = "a1fdhhuhiojlklj";
+    str1.replace(reg1,"x");
+
+    var reg2 = /a\d$/gi;
+    var str2 = "fsckjbvsdnvkna2";
+    str2.replace(reg2,"x");
+
+    /*
+    数量词：
+    m?  表示m出现0次或者1次
+    n+  表示n出现1次或者多次
+    p{m,n} 表示p至少m次，至多出现n次
+    */
+    var reg1 = /a?bcd/gi;
+    var str1 = "abcd bcd aabcd";
+    str1.replace(reg1,"x");//"x x ax"
+
+    var reg2 = /a+bcd/gi;
+    var str2 = "abcd bcd aabcd aaabcd";
+    str2.replace(reg2,"x");//"x bcd x x"
+
+    var reg3 = /a{2,3}bcd/gi;
+    var str3 = "abcd bcd aabcd aaabcd aaaabcd";
+    str3.replace(reg3,"x");//"abcd bcd x x ax"
+
+
+    /*
+    集合
+    [abcdef]从中括号中任取一个字符
+    [^abcdef]排除中括号内的字符的任意一个字符
+
+    字符边界
+    ^a 表示以特定字符开头
+    b$ 表示以特定字符结尾
+
+    数量词
+    a*表示匹配前面的字符0次或者多次
+    a{m,n}表示至少匹配m次，至多匹配n次
+    x|y 表示匹配x或者y
+    */
+
+</script>
+</html>

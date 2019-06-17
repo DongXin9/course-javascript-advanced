@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    new Date(年份,月份,日,时,分,秒,毫秒)
+    */
+    
+    var date1 = new Date("2019","05","05");
+    console.log(date1);
+
+    /*
+    Date(时间格式)
+    */
+    var date2 = new Date("2019-05-05");
+    console.log(date2);
+
+    var minllionSeconds = Date.now();
+    var date3 = new Date(minllionSeconds);
+    console.log(date3);
+
+
+    /*
+    时间分类：
+    当地时间
+    世界标准时间UTC GMT
+    */
+   var minllionSeconds = Date.parse("2019-05-05");
+   console.log(minllionSeconds);
+</script>
+</html>

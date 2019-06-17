@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="s">层一</div>
+    <div>层二</div>
+    <div>层三</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        鼠标移上时，背景色变成蓝色
+        移开时，变回灰色
+        点击时变为红色
+    */
+    $("div").mouseover(function(){
+        $(this).css("background","blue");
+    }).mouseout(function(){
+        $(this).css("background","#eee");
+    }).click(function(){
+        $(this).css("background","red");
+    })
+    
+
+</script>
+</html>

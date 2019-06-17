@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function createIterator(arr){
+        var i = 0;
+        return {
+            next:function(){
+                return i<arr.length?
+                {value:arr[i++], done:false} :
+                {value:undefined, done:true};
+            }
+        }
+    }
+    let iterator1 = createIterator([1,2,3,4]);
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+
+
+
+    /*
+    为了给各种数据结构提供统一的遍历接口
+    */
+    let str = "abcd";
+    let arr1 = [1,2,3,4];
+    let m1 = new Map({name:"zhangsan",age:20});
+    let s1 = new Set([1, 2, 3, 1]);
+    /*普通对象无法直接使用遍历器遍历*/
+    let obj = {name:"zhangsan",age:20};
+    for(let i of str){
+        console.log(str);
+    }
+    for(let i of arr1){
+        console.log(arr1);
+    }
+
+    /*
+    只需要查看数据是否具有Symbol.iterator属性
+    就可知道该数据结构是否可被遍历器遍历
+    */
+    let arr1= [1,2,3];
+    let str="abcd";
+    console.log(arr1[Symbol.iterator]);
+    let obj={};
+    console.log(obj[Symbol.iterator]);
+
+    let [head, ...detail] = [1,2,3,4];
+    console.log(detail);
+
+
+
+
+
+
+    function* helloGenerator(){
+        yield "hello";
+        yield "world";
+        return "ending";
+    }
+    let iterator1=helloGenerator();
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+
+
+
+    let myiterator ={};
+    myiterator[Symbol.iterator]=function*(){
+        yield{name:"zhangsan"};
+        yield{age:20};
+        return;
+    }
+    console.log([...myiterator]);
+    for(let i of myiterator){
+        console.log(i);
+    }
+
+
+
+    setTimeout(function(){
+        console.logl("world");
+    },3000);
+    console.log("hello");
+
+    
+
+
+</script>
+</html>

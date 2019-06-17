@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //或者让局部变量保存在内存中
+
+    // function foo(x){
+    //     var tmp = 10;
+    //     return function(y){
+    //         console.log(x+y,++tmp);
+    //     }
+    // }
+    // var fee = foo(10);
+    // fee(1);
+
+    //不会形成闭包
+    // var tmp = 10;
+    // function foo(){
+    //     return function(){
+    //         console.log(++tmp);
+    //     }
+    // }
+    // var fee = foo();
+    // fee();
+
+    // var tmp = 100;
+    // function foo(x){
+    //     var tmp = 3;
+    //     return function(y){
+    //         console.log(x+y+(++tmp));
+    //     }
+    // }
+    // var fee = foo(2);
+    // fee(10);
+    // fee(10);
+    // fee(10);
+
+    // function counter(){
+    //     var n = 0;
+    //     return{
+    //         count:function(){return ++n},
+    //         reset:function(){n = 0;return n;}
+    //     }
+
+
+    // }
+    // //闭包相互独立
+    // var c = counter();
+    // var d = counter();
+    // console.log(c.count());//1
+    // console.log(c.count());//2
+    // console.log(d.reset());//0
+    // console.log(c.count());//3
+
+    // function closure(objId,content,delay){
+    //     setTimeout(function(){
+    //         console.log(objId,content);
+    //     },delay)
+
+    // }
+
+    /*
+    对象instanceof构造函数
+    1、判断对象是否可以使用构造函数实例化对象
+    2、判断在对象的原型链上能否找到构造函数的原型
+
+    对象._proto_(.....) ==构造函数.prototype
+
+    */
+   console.log(Object instanceof Function);
+   console.log(Object._proto_==Function.prototype);
+//    console.log(Object instanceof);
+
+</script>
+</html>

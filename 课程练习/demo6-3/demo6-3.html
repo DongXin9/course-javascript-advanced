@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    Array.from()
+    将类数组结构的变量转化为一个数组
+    */
+    console.log(Array.from("abcdef"));
+    function fn1(){
+        var arr1 = Array.from(arguments);
+        console.log(arr1);
+    }
+    fn1(1,2,3);
+
+    /*
+    Array.of()
+    \
+    可以一组数组
+    */
+
+
+    /*
+    copyWithin(target,start,)
+    target 复制的目标位置
+    start 复制的起始位置
+
+    */
+    let arr1 = [0,1,2,3,4,5];
+    arr1.copyWithin(0,3,4);
+
+    /*
+    find()
+    查找符合条件的元素
+    并返回第一个符合条件的元素
+    */
+    let arr2 =[10,20,30,40,50];
+    let el = arr2.find(function(element){
+        return element > 19;
+    });
+    console.log(el);
+    //返回符合条件的第一个索引值
+    let elIndex= arr2.findIndex(function(){
+        return element>19;
+    });
+    console.log(elIndex);
+
+    //fill(value,填充的起始位置，填充的结束位置)
+    let arr3=[1,2,3,4];
+    arr3.fill(0,0,3);
+
+    var username = "lily";
+    /*
+    ES6简化写法
+    不兼容IE
+    */
+    var person ={ 
+        username,
+        show(){
+            console.log(this.username);
+        }
+    }
+    person.show();
+</script>
+</html>

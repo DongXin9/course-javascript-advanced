@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr1 = [1,2,3,4];
+    var arr2 = arr1;
+    arr1[0] = 5;
+    console.log(arr2);
+
+    var arr1 = [,1,2,3,,5];
+    console.log(arr1.length);//6
+    Array.prototype.min="扩展属性";
+    // 遍历数组的过程中，需要注意
+
+
+
+
+    // 多维数组 实例一 矩形数组和交错数组
+    var table = new Array(5);
+    for(var i=0;i<table.length;i++){
+        table[i] = new Array(5);//若是table[i] = new Array(i);
+    }
+
+    for(var row=0;row<table.length;row++){
+        for(var col=0;col<table[row].length;col++){
+            table[row][col]=row*col;
+        }
+    }
+    var product = table[2][4];
+    console.log(table);
+
+
+
+
+    // 合并一起的写法
+    var table = new Array(5);
+    for(var i=0;i<table.length;i++){
+        table[i] = new Array(5);//若是table[i] = new Array(i);
+        for(var col=0;col<table[i].length;col++){
+            table[i][col]=i*col;
+        }
+    }
+    var product = table[2][4];
+    console.log(table);
+
+
+    
+
+</script>
+</html>

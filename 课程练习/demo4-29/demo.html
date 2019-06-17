@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function BaseClass(){
+
+    }
+    BaseClass.f1=function(){
+        console.log("静态方法")
+    }
+    BaseClass.prototype.fn2 = function(){
+        console.log("原型方法");
+    }
+    BaseClass.fn1();//类
+    var base = new BaseClass();
+    base.fn2();
+    /*
+    Object.create()
+    Object.defineProperty();
+    
+    */
+    function Foo(){
+
+    }
+    Foo.prototype.constructor=Foo;
+    var Foo = new Foo();
+    foo.constructor == foo;
+
+
+    var foo1 = foo.constructor();
+    foo.prototype = {};
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+</script>
+</html>

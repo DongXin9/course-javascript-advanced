@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    if(true){
+        var a = 1;
+    }
+    console.log(a);
+
+    if(false){
+        var b = 2;
+    }
+    console.log(b);
+
+
+    function fn1(){
+        //函数内部的预解析,在函数范围内
+        //
+    }
+
+    function f1(){
+        fn2();
+        function fn2(){
+            console.log("Hello world");
+        }
+    }
+    fn1();
+    fn2();
+
+
+
+    var username = 'jack';
+    function foo(){
+        console.log(username);
+    }
+    function bar(){
+        var username = "bill";
+        foo();
+    }
+    bar();
+
+    function fn1(){
+        var c = 3;
+        var d = 4;
+        function fn2(){
+            var e = 5;
+            var f = 6;
+            function fn3(){
+                var g = 7;
+                var h = 8;
+            }
+            fn
+        }
+    }
+
+</script>
+</body>
+</html>

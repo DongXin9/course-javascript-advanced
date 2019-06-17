@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    promise将异步的操作写成同步执行的方式
+    resolve是异步操作成功时的调用
+    reject是异步操作失败时的调用
+    */
+    //resolve();是then里的第一个函数
+    new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log("world");
+            resolve();
+        },3000)
+    }).then(function(){
+        /*对应resolve*/
+        console.log("hello");
+        console.log(val);
+    },function(){
+        /*对用reject*/
+    }).catch(function(e){
+        /*捕获异常*/
+        console.log(e);
+    }).finally(function(){
+        /*无论何时都会执行*/
+        console.log("finally执行结果");
+    })
+</script>
+</html>

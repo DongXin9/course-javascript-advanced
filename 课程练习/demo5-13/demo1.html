@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    Math.random();
+    得到的是一个[0,1)之间的浮动数
+    
+    */
+    for(var i=0;i<5;i++){
+        console.log(Math.random());
+    }
+    function getMiddle(min,max){
+        return Math.random()*(max-min) + min;
+    }
+
+
+
+    //
+
+    var jsObject = {
+        "username":"zhangsan",
+        "age":20,
+        "address":{
+            "addName":"石家庄",
+            "addCode":"11122"
+        }
+    };
+    var jsonStr = ISON.stringify(jsObject,function(k,v){
+        if(typeof v == "number"){
+            return undefined;
+        }
+        return v; 
+    })
+    console.log(jsObject);
+</script>
+</html>

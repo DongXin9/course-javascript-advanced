@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    arr.forEach(callback,thisArd);
+    callback是针对数组的每个数组元素所应用的回调函数
+    value表示数组元素的元素值
+    index表示数组元素的索引值
+    arr表示被操作的数组
+    thisArg回调函数内部的this指向
+    */
+    var arr1=[1,2,3];
+    var obj1={x:"d"};
+    arr1.forEach(function(value,index,arr){
+        console.log(value,index,arr);
+        this[value]=value;
+    },obj1);
+    console.log(obj1);
+
+    var arr1 = [10,20,30,40];
+    var result = arr1.every(function(value){
+        return value < 5;
+    });
+    console.log(result);
+
+    var arr1=[1,2,3,4];
+    var result2 = arr1.map(function(value){
+        return value*2;
+    });
+    console.log(result2);
+    //过滤
+    var result3 = arr1.filter(function(value){
+        return value>3;
+    });
+    console.log(result3);
+
+    
+</script>
+</html>
